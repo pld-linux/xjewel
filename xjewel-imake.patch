@@ -1,11 +1,8 @@
---- xjewel-1.6/Imakefile.orig	Wed Feb 16 05:35:06 1994
-+++ xjewel-1.6/Imakefile	Thu Aug 17 11:20:30 1995
-@@ -1,15 +1,15 @@
- # A little makeyfile edit up to the solid line...
- 
- # EDIT THE CDEBUGFLAGS IF -O GIVES A PROBLEM
--CDEBUGFLAGS = -O  
-+CDEBUGFLAGS = $(RPM_OPT_FLAGS)
+diff -Nru xjewel-1.6/Imakefile xjewel-1.6.new/Imakefile
+--- xjewel-1.6/Imakefile	Wed Feb 16 11:35:06 1994
++++ xjewel-1.6.new/Imakefile	Thu May  4 01:38:01 2000
+@@ -4,12 +4,12 @@
+ CDEBUGFLAGS = -O  
  
  # CHANGE HSCORE_FILE TO SUIT
 -#HSCORE_FILE=/usr/local/lib/xjewel.scores
