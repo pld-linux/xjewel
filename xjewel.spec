@@ -86,8 +86,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/xjewel
+%attr(2755,root,games) %{_bindir}/xjewel
 %{_mandir}/man1/xjewel.1x*
-%config(noreplace) %verify(not mtime size md5) /var/games/xjewel.scores
+%attr(664,root,games) %config(noreplace) %verify(not mtime size md5) /var/games/xjewel.scores
 %{_applnkdir}/Games/*
 %{_pixmapsdir}/*
