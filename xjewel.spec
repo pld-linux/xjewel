@@ -87,4 +87,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/xjewel.1x.gz
 %config /var/lib/games/xjewel.scores
 %{_applnkdir}/Games/*
-%{_datadir}/pixmaps/*
+%{_pixmapsdir}/*
