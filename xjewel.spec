@@ -23,26 +23,27 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_mandir		/usr/X11R6/man
 
 %description
-Xjewel is an X Window System game much like Domain/Jewelbox, Sega's Columns
-and/or Tetris. The point of the game is to move or rotate the blocks as
-they fall, to get jewels in patterns of three when they come to rest.
+Xjewel is an X Window System game much like Domain/Jewelbox, Sega's
+Columns and/or Tetris. The point of the game is to move or rotate the
+blocks as they fall, to get jewels in patterns of three when they come
+to rest.
 
 %description -l de
-Jewel hat große Ähnlichkeit mit Domain/Jewelbox, einem Puzzle-Game in der
-Tetris-Manier. Die Aufgabe besteht darin, die Bewegung der Blöcke zu
-steuern, die vom oberen Bildschirmrand nach unten fallen. Man kann sie nach
-links und nach rechts bewegen und die Segmente drehen. Der Spieler
-versucht, möglichst viele Punkte einzuheimsen, bevor sein Lebensfaden
-abgezwackt wird.
+Jewel hat große Ähnlichkeit mit Domain/Jewelbox, einem Puzzle-Game in
+der Tetris-Manier. Die Aufgabe besteht darin, die Bewegung der Blöcke
+zu steuern, die vom oberen Bildschirmrand nach unten fallen. Man kann
+sie nach links und nach rechts bewegen und die Segmente drehen. Der
+Spieler versucht, möglichst viele Punkte einzuheimsen, bevor sein
+Lebensfaden abgezwackt wird.
 
 %description -l fr
-jewel est un jeu comme Domain/Jewelbox qui est un jeu de puzzle de style
-Tetris.
+jewel est un jeu comme Domain/Jewelbox qui est un jeu de puzzle de
+style Tetris.
 
-On y joue en contrôlant le déplacement des blocs qui tombent du haut de
-l'écran. On peut les déplacer à droite et à gauche et les faire tourner. Le
-but est d'avoir le plus de points possible avant que la Faucheuse n'y mette
-un terme.
+On y joue en contrôlant le déplacement des blocs qui tombent du haut
+de l'écran. On peut les déplacer à droite et à gauche et les faire
+tourner. Le but est d'avoir le plus de points possible avant que la
+Faucheuse n'y mette un terme.
 
 %description -l tr
 Jewel, Domain/Jewelbox ya da Tetris benzeri bir bulmaca oyunudur. Amaç
