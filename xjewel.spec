@@ -1,20 +1,22 @@
 Summary:	An X Window System game of falling jewel blocks
 Summary(de):	Game von der Art von Segas COLUMNS 
 Summary(fr):	Jeu du style Columns de Sega
+Summary(pl):	Gra pod X Window System - spadaj±ce bloki
 Summary(tr):	Sega'nýn columns'una benzer oyun
 Name:		xjewel
 Version:	1.6
 Release:	14
 License:	MIT
-Group:		X11/Games
-Group(pl):	X11/Gry
+Group:		X11/Applications/Games
+Group(de):	X11/Applikationen/Spiele
+Group(pl):	X11/Aplikacje/Gry
 Source0:	ftp://ftp.x.org/R5contrib/%{name}-%{version}.tar.z
-Source1:	xjewel.desktop
-Source2:	xjewel.png
-Patch0:		xjewel-imake.patch
-Patch1:		xjewel-enhance.patch
-Patch2:		xjewel-nobr.patch
-Patch3:		xjewel-select.patch
+Source1:	%{name}.desktop
+Source2:	%{name}.png
+Patch0:		%{name}-imake.patch
+Patch1:		%{name}-enhance.patch
+Patch2:		%{name}-nobr.patch
+Patch3:		%{name}-select.patch
 Icon:		xjewel.gif
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -59,7 +61,7 @@ yerleþtirmektir.
 
 %build
 xmkmf
-make	CDEBUGFLAGS="$RPM_OPT_FLAGS" \
+%{__make} CDEBUGFLAGS="%{rpmcflags}" \
 	HSCORE_FILE=/var/lib/games/xjewel.scores
 
 %install
@@ -74,17 +76,13 @@ install -d $RPM_BUILD_ROOT{%{_applnkdir}/Games,%{_datadir}/pixmaps} \
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games
 install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/pixmaps
 
-#strip --strip-unneeded $RPM_BUILD_ROOT%{_bindir}/*
-
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/*
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xjewel
-%{_mandir}/man1/xjewel.1x.gz
-%config /var/lib/games/xjewel.scores
+%{_mandir}/man1/xjewel.1x*
+%config(noreplace) %verify(not mtime size md5) /var/lib/games/xjewel.scores
 %{_applnkdir}/Games/*
 %{_pixmapsdir}/*
