@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=XJewel
+Comment=An X Window System game of falling jewel blocks
+Comment[de]=Game von der Art von Segas COLUMNS 
+Comment[fr]=Jeu du style Columns de Sega
+Comment[tr]=Sega'nýn columns'una benzer oyun
+Icon=xjewel.png
+Exec=/usr/X11R6/bin/xjewel
+Terminal=0
+Type=Application
