@@ -1,0 +1,43 @@
+--- xjewel-1.6/Imakefile.orig	Wed Feb 16 05:35:06 1994
++++ xjewel-1.6/Imakefile	Thu Aug 17 11:20:30 1995
+@@ -1,15 +1,15 @@
+ # A little makeyfile edit up to the solid line...
+ 
+ # EDIT THE CDEBUGFLAGS IF -O GIVES A PROBLEM
+-CDEBUGFLAGS = -O  
++CDEBUGFLAGS = $(RPM_OPT_FLAGS)
+ 
+ # CHANGE HSCORE_FILE TO SUIT
+-#HSCORE_FILE=/usr/local/lib/xjewel.scores
+-HSCORE_FILE=xjewel.scores
++HSCORE_FILE=/var/lib/games/xjewel.scores
++#HSCORE_FILE=xjewel.scores
+ 
+ # ADD YOUR ARCHITECTURE IF YOU USE SELECT INSTEAD OF POLL
+ #if defined(HPArchitecture) || defined(ApolloArchitecture) || \
+- 	defined(UltrixArchitecture)
++ 	defined(UltrixArchitecture) || 1
+ #define sel -DUSE_SELECT
+ #else
+ #define sel 
+@@ -37,16 +37,16 @@
+ 		game.h intro.h help.h
+ OBJS    = xw.o jewel.o logic.o panel.o xhscore.o hscore.o game.o intro.o help.o
+ SRCS    = xw.c jewel.c logic.c panel.c xhscore.c hscore.c game.c intro.c help.c
+-FONT   = bitmaps/seven_seg
+-CFONT   = bitmaps/seven_seg.$(FFILE)
++#FONT   = bitmaps/seven_seg
++#CFONT   = bitmaps/seven_seg.$(FFILE)
+ 
+ 
+ # LETS GET TO IT...
+ ComplexProgramTarget(xjewel)
+ 
+ # IF YOUR SERVER DOES NOT LIKE THE DEFAULT FONT COMPILER, EDIT HERE...
+-FontTarget($(FONT))
+-	$(MKFONTDIR) bitmaps/
++#FontTarget($(FONT))
++	#$(MKFONTDIR) bitmaps/
+ 
+ # FORCE FONT TO BE BUILT
+ all:: $(CFONT)

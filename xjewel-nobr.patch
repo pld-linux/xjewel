@@ -1,0 +1,17 @@
+--- xjewel-1.6/Imakefile.nobr	Wed Aug 12 18:18:47 1998
++++ xjewel-1.6/Imakefile	Wed Aug 12 18:47:37 1998
+@@ -46,11 +46,11 @@
+ 
+ # IF YOUR SERVER DOES NOT LIKE THE DEFAULT FONT COMPILER, EDIT HERE...
+ #FontTarget($(FONT))
+-	#$(MKFONTDIR) bitmaps/
++#	$(MKFONTDIR) bitmaps/
+ 
+ # FORCE FONT TO BE BUILT
+ all:: $(CFONT)
+ 
+ install::
+-	touch  $(HSCORE_FILE)
+-	chmod a+w $(HSCORE_FILE)
++	touch $(DESTDIR)$(HSCORE_FILE)
++	chmod a+w $(DESTDIR)$(HSCORE_FILE)

@@ -1,0 +1,119 @@
+diff -ur xjewel-1.6.orig/jewel.c xjewel-1.6/jewel.c
+--- xjewel-1.6.orig/jewel.c	Wed Feb 16 05:35:00 1994
++++ xjewel-1.6/jewel.c	Thu Oct  5 17:18:04 1995
+@@ -19,6 +19,8 @@
+ #endif
+ 
+ #include <stdlib.h>
++#include <getopt.h>
++#include <stdio.h>
+ 
+ #include "general.h"
+ #include "logic.h"
+@@ -526,6 +528,21 @@
+ 	{
+ 	XKeyboardControl Values;
+ 	struct timeval curtime;
++	int arg;
++
++	while (1)
++	    {
++	    arg = getopt_long(argc, argv, "s:", NULL, NULL);
++	    if (arg == -1) break;
++
++	    
++	    if (arg != 's') 
++	        {
++		fprintf(stderr, "bad argument %c (%d)\n", arg, arg);
++		exit(1);
++		}
++	    Set_Initial_Stage(atoi(optarg));
++	    }
+ 
+ 	gettimeofday(&curtime,NULL);
+ 	srandom((unsigned int)(curtime.tv_usec>>8));
+diff -ur xjewel-1.6.orig/panel.c xjewel-1.6/panel.c
+--- xjewel-1.6.orig/panel.c	Wed Feb 16 05:35:17 1994
++++ xjewel-1.6/panel.c	Thu Oct  5 17:18:42 1995
+@@ -8,6 +8,8 @@
+ #include "hscore.h"
+ #include "panel.h"
+ 
++#include <stdio.h>
++
+ static int Score;
+ static int Lives;
+ static float Speed;
+@@ -15,6 +17,7 @@
+ static int Rest;
+ static BOOL _Sound = DEF_SOUND;
+ static BOOL _Paused;
++static int initialStage = 0;
+ 
+ static float Speeds[]=
+ 	{
+@@ -47,6 +50,16 @@
+ 	0.0000		/* Stage 27 */
+ 	};
+ 
++void Set_Initial_Stage(int stage) 
++	{
++	if (stage > ((sizeof(Speeds) / sizeof(Speeds[0])))) 
++	    fprintf(stderr, "stage %d is too high -- starting at 0\n", stage);
++	else if (stage < 0) 
++	    fprintf(stderr, "stage 0 is the easiest stage\n");
++	else
++	    initialStage = stage;
++	}
++	
+ void Reset_Score()
+ 	{
+ 	/* set to zero */
+@@ -101,8 +114,8 @@
+ void Reset_Stage()
+ 	{
+ 	/* set stage and speed */
+-	Stage=1;
+-	Speed=Speeds[0];
++	Stage=initialStage;
++	Speed=Speeds[Stage];
+ 	Redraw_Speed(Speed);
+ 	Redraw_Stage(Stage);
+ 	}
+diff -ur xjewel-1.6.orig/xjewel.man xjewel-1.6/xjewel.man
+--- xjewel-1.6.orig/xjewel.man	Wed Feb 16 05:35:19 1994
++++ xjewel-1.6/xjewel.man	Thu Oct  5 17:33:00 1995
+@@ -1,4 +1,4 @@
+-.TH JEWEL 6 "December 1992" "X Version 11"
++.TH JEWEL 6 "October 1995" "X Version 11"
+ .SH NAME
+ 
+ xjewel \- X windows droping jewels game
+@@ -152,6 +152,9 @@
+ completion of the 50 jewels required per level.  The current status is
+ shown in the REST field.
+ 
++To start playing at a different stage, start xjewel with a -s option
++followed by the stage number you want to start with. 
++
+ .SH NOTES
+ 
+ This game was originally written by Yoshihiro Satoh of HP.  I have made a
+@@ -185,6 +188,8 @@
+ .br
+ >   Document Writing  Nancy Paisner
+ .br
++>   Various changes   Erik Troan (ewt@redhat.com)
++.br
+ >
+ .br
+ >Copyright
+@@ -211,6 +216,8 @@
+ David Cooper
+ .br
+ Jose Guterman
++.br
++Erik Troan (ewt@redhat.com)
+ .SH "SEE ALSO"
+ 
+ .SH BUGS
