@@ -1,0 +1,22 @@
+Patch submitted by K.H.C.vanHouten@research.kpn.com
+================================================================================
+--- xw.c	Wed Feb 16 05:34:51 1994
++++ xw.c	Fri Jan  7 12:55:50 2000
+@@ -156,6 +156,8 @@
+ 	fd_set readfds, writefds, exceptfds;
+ 	struct timeval timeout_BSD;
+ 
++	FD_ZERO(&readfds);
++	FD_ZERO(&exceptfds);
+ 	FD_SET(XConnectionNumber(xw_display),&readfds);
+ 	FD_SET(XConnectionNumber(xw_display),&exceptfds);
+ #   else
+@@ -224,6 +226,8 @@
+ 			}
+ 		else
+ 			{ ret = select(nfds,&readfds,NULL,&exceptfds,NULL); }
++		FD_ZERO(&readfds);
++		FD_ZERO(&exceptfds);
+ 		FD_SET(XConnectionNumber(xw_display),&readfds);
+ 		FD_SET(XConnectionNumber(xw_display),&exceptfds);
+ #else
