@@ -8,8 +8,6 @@ Version:	1.6
 Release:	18
 License:	MIT
 Group:		X11/Applications/Games
-Group(de):	X11/Applikationen/Spiele
-Group(pl):	X11/Aplikacje/Gry
 Source0:	ftp://ftp.x.org/R5contrib/%{name}-%{version}.tar.z
 Source1:	%{name}.desktop
 Source2:	%{name}.png
