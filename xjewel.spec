@@ -8,7 +8,7 @@ Source:		ftp://ftp.x.org/R5contrib/%{name}-%{version}.tar.z
 Patch0:		xjewel-1.6-imake.patch
 Patch1:		xjewel-1.6-enhance.patch
 Patch2:		xjewel-1.6-nobr.patch
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		/usr/X11R6/man
