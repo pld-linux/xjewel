@@ -67,7 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_applnkdir}/Games,%{_datadir}/pixmaps} \
 	$RPM_BUILD_ROOT/var/lib/games
 
-make install install.man \
+%{__make} install install.man \
 	DESTDIR=$RPM_BUILD_ROOT \
 	HSCORE_FILE=/var/lib/games/xjewel.scores
 
