@@ -1,14 +1,17 @@
-Summary: An X Window System game of falling jewel blocks.
-Name: xjewel
-Version: 1.6
-Release: 11
-Copyright: MIT
-Group: Amusements/Games
-Source: ftp://ftp.x.org/R5contrib/xjewel-1.6.tar.z
-Patch0: xjewel-1.6-imake.patch
-Patch1: xjewel-1.6-enhance.patch
-Patch2: xjewel-1.6-nobr.patch
-BuildRoot: /var/tmp/xjewel-root
+Summary:	An X Window System game of falling jewel blocks.
+Name:		xjewel
+Version:	1.6
+Release:	11
+Copyright:	MIT
+Group:		Amusements/Games
+Source:		ftp://ftp.x.org/R5contrib/%{name}-%{version}.tar.z
+Patch0:		xjewel-1.6-imake.patch
+Patch1:		xjewel-1.6-enhance.patch
+Patch2:		xjewel-1.6-nobr.patch
+BuildRoot:	/tmp/%{name}-%{version}-root
+
+%define		_prefix		/usr/X11R6
+%define		_mandir		/usr/X11R6/man
 
 %description
 Xjewel is an X Window System game much like Domain/Jewelbox, Sega's
@@ -24,14 +27,20 @@ to rest.
 
 %build
 xmkmf
-make "RPM_OPT_FLAGS=$RPM_OPT_FLAGS"
+make "RPM_OPT_FLAGS=$RPM_OPT_FLAGS" \
+	HSCORE_FILE=/var/state/games/xjewel.scores
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/etc/X11/wmconfig
-mkdir -p $RPM_BUILD_ROOT/var/lib/games
+install -d $RPM_BUILD_ROOT/etc/X11/wmconfig
+install -d $RPM_BUILD_ROOT/var/state/games
 
-make DESTDIR=$RPM_BUILD_ROOT install install.man
+make install install.man DESTDIR=$RPM_BUILD_ROOT \
+	HSCORE_FILE=/var/state/games/xjewel.scores
+
+strip --strip-unneeded $RPM_BUILD_ROOT%{_bindir}/*
+
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/*
 
 cat > $RPM_BUILD_ROOT/etc/X11/wmconfig/xjewel <<EOF
 xjewel name "xjewel"
@@ -44,8 +53,8 @@ EOF
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(-,root,root)
-/usr/X11R6/bin/xjewel
-%config /var/lib/games/xjewel.scores
-/usr/X11R6/man/man1/xjewel.1x
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/xjewel
+%{_mandir}/man1/xjewel.1x.gz
+%config /var/state/games/xjewel.scores
 %config /etc/X11/wmconfig/xjewel
