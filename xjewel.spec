@@ -5,7 +5,7 @@ Summary(pl):	Gra pod X Window System - spadaj±ce bloki
 Summary(tr):	Sega'nýn columns'una benzer oyun
 Name:		xjewel
 Version:	1.6
-Release:	14
+Release:	17
 License:	MIT
 Group:		X11/Applications/Games
 Group(de):	X11/Applikationen/Spiele
