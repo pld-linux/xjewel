@@ -1,7 +1,7 @@
 Summary:	An X Window System game of falling jewel blocks.
 Name:		xjewel
 Version:	1.6
-Release:	11
+Release:	12
 Copyright:	MIT
 Group:		Amusements/Games
 Source:		ftp://ftp.x.org/R5contrib/%{name}-%{version}.tar.z
@@ -28,15 +28,15 @@ to rest.
 %build
 xmkmf
 make "RPM_OPT_FLAGS=$RPM_OPT_FLAGS" \
-	HSCORE_FILE=/var/state/games/xjewel.scores
+	HSCORE_FILE=/var/lib/games/xjewel.scores
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/etc/X11/wmconfig
-install -d $RPM_BUILD_ROOT/var/state/games
+install -d $RPM_BUILD_ROOT/var/lib/games
 
 make install install.man DESTDIR=$RPM_BUILD_ROOT \
-	HSCORE_FILE=/var/state/games/xjewel.scores
+	HSCORE_FILE=/var/lib/games/xjewel.scores
 
 strip --strip-unneeded $RPM_BUILD_ROOT%{_bindir}/*
 
@@ -56,5 +56,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xjewel
 %{_mandir}/man1/xjewel.1x.gz
-%config /var/state/games/xjewel.scores
+%config /var/lib/games/xjewel.scores
 %config /etc/X11/wmconfig/xjewel
