@@ -70,14 +70,14 @@ xmkmf
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_applnkdir}/Games,%{_datadir}/pixmaps,/var/games}
+install -d $RPM_BUILD_ROOT{%{_applnkdir}/Games/Arcade,%{_pixmapsdir},/var/games}
 
 %{__make} install install.man \
 	DESTDIR=$RPM_BUILD_ROOT \
 	HSCORE_FILE=/var/games/xjewel.scores
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games
-install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/pixmaps
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -87,5 +87,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(2755,root,games) %{_bindir}/xjewel
 %{_mandir}/man1/xjewel.1x*
 %attr(664,root,games) %config(noreplace) %verify(not mtime size md5) /var/games/xjewel.scores
-%{_applnkdir}/Games/*
+%{_applnkdir}/Games/Arcade/*
 %{_pixmapsdir}/*
