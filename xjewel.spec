@@ -1,5 +1,5 @@
 Summary:	An X Window System game of falling jewel blocks
-Summary(de):	Game von der Art von Segas COLUMNS 
+Summary(de):	Game von der Art von Segas COLUMNS
 Summary(fr):	Jeu du style Columns de Sega
 Summary(pl):	Gra pod X Window System - spadaj±ce bloki
 Summary(tr):	Sega'nýn columns'una benzer oyun
