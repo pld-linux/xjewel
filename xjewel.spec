@@ -9,6 +9,7 @@ Release:	19
 License:	MIT
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.x.org/R5contrib/%{name}-%{version}.tar.z
+# Source0-md5:	b6448726269ec158c5db6eb54864bdfe
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-imake.patch
