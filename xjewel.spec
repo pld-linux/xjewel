@@ -5,7 +5,7 @@ Summary(pl):	Gra pod X Window System - spadaj±ce bloki
 Summary(tr):	Sega'nýn columns'una benzer oyun
 Name:		xjewel
 Version:	1.6
-Release:	17
+Release:	18
 License:	MIT
 Group:		X11/Applications/Games
 Group(de):	X11/Applikationen/Spiele
@@ -47,6 +47,12 @@ de l'écran. On peut les déplacer à droite et à gauche et les faire
 tourner. Le but est d'avoir le plus de points possible avant que la
 Faucheuse n'y mette un terme.
 
+%description -l pl
+Xjewel jest gr± pod X Window System podobn± do Domain/Jewelbox,
+Columns znanej z Segi lub Tetrisa. Celem gry jest przesuwanie lub
+rotacja bloków podczas spadania, aby u³o¿yæ sk³adaj±ce siê na nie
+klejnoty w trójki w celu usuniêcia.
+
 %description -l tr
 Jewel, Domain/Jewelbox ya da Tetris benzeri bir bulmaca oyunudur. Amaç
 düþen bloklarý saða/sola çevirerek ya da döndürerek uygun biçimde
@@ -62,16 +68,15 @@ yerleþtirmektir.
 %build
 xmkmf
 %{__make} CDEBUGFLAGS="%{rpmcflags}" \
-	HSCORE_FILE=/var/lib/games/xjewel.scores
+	HSCORE_FILE=/var/games/xjewel.scores
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_applnkdir}/Games,%{_datadir}/pixmaps} \
-	$RPM_BUILD_ROOT/var/lib/games
+install -d $RPM_BUILD_ROOT{%{_applnkdir}/Games,%{_datadir}/pixmaps,/var/games}
 
 %{__make} install install.man \
 	DESTDIR=$RPM_BUILD_ROOT \
-	HSCORE_FILE=/var/lib/games/xjewel.scores
+	HSCORE_FILE=/var/games/xjewel.scores
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games
 install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/pixmaps
@@ -83,6 +88,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xjewel
 %{_mandir}/man1/xjewel.1x*
-%config(noreplace) %verify(not mtime size md5) /var/lib/games/xjewel.scores
+%config(noreplace) %verify(not mtime size md5) /var/games/xjewel.scores
 %{_applnkdir}/Games/*
 %{_pixmapsdir}/*

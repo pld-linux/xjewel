@@ -7,7 +7,7 @@ diff -Nru xjewel-1.6/Imakefile xjewel-1.6.new/Imakefile
  # CHANGE HSCORE_FILE TO SUIT
 -#HSCORE_FILE=/usr/local/lib/xjewel.scores
 -HSCORE_FILE=xjewel.scores
-+HSCORE_FILE=/var/lib/games/xjewel.scores
++HSCORE_FILE=/var/games/xjewel.scores
 +#HSCORE_FILE=xjewel.scores
  
  # ADD YOUR ARCHITECTURE IF YOU USE SELECT INSTEAD OF POLL
