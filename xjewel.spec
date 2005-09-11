@@ -5,7 +5,7 @@ Summary(pl):	Gra pod X Window System - spadaj±ce bloki
 Summary(tr):	Sega'nýn columns'una benzer oyun
 Name:		xjewel
 Version:	1.6
-Release:	19
+Release:	20
 License:	MIT
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.x.org/R5contrib/%{name}-%{version}.tar.z
@@ -71,13 +71,13 @@ xmkmf
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_applnkdir}/Games/Arcade,%{_pixmapsdir},/var/games}
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir},/var/games}
 
 %{__make} install install.man \
 	DESTDIR=$RPM_BUILD_ROOT \
 	HSCORE_FILE=/var/games/xjewel.scores
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
@@ -85,8 +85,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc CHANGES README
 %attr(2755,root,games) %{_bindir}/xjewel
 %{_mandir}/man1/xjewel.1x*
 %attr(664,root,games) %config(noreplace) %verify(not mtime size md5) /var/games/xjewel.scores
-%{_applnkdir}/Games/Arcade/*
+%{_desktopdir}/xjewel.desktop
 %{_pixmapsdir}/*
