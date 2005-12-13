@@ -88,6 +88,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc CHANGES README
 %attr(2755,root,games) %{_bindir}/xjewel
 %{_mandir}/man1/xjewel.1x*
-%attr(664,root,games) %config(noreplace) %verify(not mtime size md5) /var/games/xjewel.scores
+%attr(664,root,games) %config(noreplace) %verify(not md5 mtime size) /var/games/xjewel.scores
 %{_desktopdir}/xjewel.desktop
 %{_pixmapsdir}/*
