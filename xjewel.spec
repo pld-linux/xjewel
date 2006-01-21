@@ -16,7 +16,6 @@ Patch0:		%{name}-imake.patch
 Patch1:		%{name}-enhance.patch
 Patch2:		%{name}-nobr.patch
 Patch3:		%{name}-select.patch
-Icon:		xjewel.gif
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
