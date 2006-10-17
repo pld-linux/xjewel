@@ -5,7 +5,7 @@ Summary(pl):	Gra pod X Window System - spadaj±ce bloki
 Summary(tr):	Sega'nýn columns'una benzer oyun
 Name:		xjewel
 Version:	1.6
-Release:	20
+Release:	21
 License:	MIT
 Group:		X11/Applications/Games
 Source0:	ftp://ftp.x.org/R5contrib/%{name}-%{version}.tar.z
@@ -16,11 +16,10 @@ Patch0:		%{name}-imake.patch
 Patch1:		%{name}-enhance.patch
 Patch2:		%{name}-nobr.patch
 Patch3:		%{name}-select.patch
-BuildRequires:	XFree86-devel
+BuildRequires:	xorg-cf-files
+BuildRequires:	xorg-lib-libXext-devel
+BuildRequires:	xorg-util-imake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_prefix		/usr/X11R6
-%define		_mandir		/usr/X11R6/man
 
 %description
 Xjewel is an X Window System game much like Domain/Jewelbox, Sega's
@@ -65,7 +64,9 @@ yerleþtirmektir.
 
 %build
 xmkmf
-%{__make} CDEBUGFLAGS="%{rpmcflags}" \
+%{__make} \
+	CC="%{__cc}" \
+	CDEBUGFLAGS="%{rpmcflags}" \
 	HSCORE_FILE=/var/games/xjewel.scores
 
 %install
@@ -74,6 +75,8 @@ install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir},/var/games}
 
 %{__make} install install.man \
 	DESTDIR=$RPM_BUILD_ROOT \
+	BINDIR=%{_bindir} \
+	MANDIR=%{_mandir}/man1 \
 	HSCORE_FILE=/var/games/xjewel.scores
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
