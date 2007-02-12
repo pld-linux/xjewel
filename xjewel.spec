@@ -1,8 +1,8 @@
 Summary:	An X Window System game of falling jewel blocks
-Summary(de):	Game von der Art von Segas COLUMNS
-Summary(fr):	Jeu du style Columns de Sega
-Summary(pl):	Gra pod X Window System - spadaj±ce bloki
-Summary(tr):	Sega'nın columns'una benzer oyun
+Summary(de.UTF-8):   Game von der Art von Segas COLUMNS
+Summary(fr.UTF-8):   Jeu du style Columns de Sega
+Summary(pl.UTF-8):   Gra pod X Window System - spadajÄ…ce bloki
+Summary(tr.UTF-8):   Sega'nÄ±n columns'una benzer oyun
 Name:		xjewel
 Version:	1.6
 Release:	21
@@ -27,33 +27,33 @@ Columns and/or Tetris. The point of the game is to move or rotate the
 blocks as they fall, to get jewels in patterns of three when they come
 to rest.
 
-%description -l de
-Jewel hat große Ähnlichkeit mit Domain/Jewelbox, einem Puzzle-Game in
-der Tetris-Manier. Die Aufgabe besteht darin, die Bewegung der Blöcke
+%description -l de.UTF-8
+Jewel hat groÃŸe Ã„hnlichkeit mit Domain/Jewelbox, einem Puzzle-Game in
+der Tetris-Manier. Die Aufgabe besteht darin, die Bewegung der BlÃ¶cke
 zu steuern, die vom oberen Bildschirmrand nach unten fallen. Man kann
 sie nach links und nach rechts bewegen und die Segmente drehen. Der
-Spieler versucht, möglichst viele Punkte einzuheimsen, bevor sein
+Spieler versucht, mÃ¶glichst viele Punkte einzuheimsen, bevor sein
 Lebensfaden abgezwackt wird.
 
-%description -l fr
+%description -l fr.UTF-8
 jewel est un jeu comme Domain/Jewelbox qui est un jeu de puzzle de
 style Tetris.
 
-On y joue en contrôlant le déplacement des blocs qui tombent du haut
-de l'écran. On peut les déplacer à droite et à gauche et les faire
+On y joue en contrÃ´lant le dÃ©placement des blocs qui tombent du haut
+de l'Ã©cran. On peut les dÃ©placer Ã  droite et Ã  gauche et les faire
 tourner. Le but est d'avoir le plus de points possible avant que la
 Faucheuse n'y mette un terme.
 
-%description -l pl
-Xjewel jest gr± pod X Window System podobn± do Domain/Jewelbox,
+%description -l pl.UTF-8
+Xjewel jest grÄ… pod X Window System podobnÄ… do Domain/Jewelbox,
 Columns znanej z Segi lub Tetrisa. Celem gry jest przesuwanie lub
-rotacja bloków podczas spadania, aby u³o¿yæ sk³adaj±ce siê na nie
-klejnoty w trójki w celu usuniêcia.
+rotacja blokÃ³w podczas spadania, aby uÅ‚oÅ¼yÄ‡ skÅ‚adajÄ…ce siÄ™ na nie
+klejnoty w trÃ³jki w celu usuniÄ™cia.
 
-%description -l tr
-Jewel, Domain/Jewelbox ya da Tetris benzeri bir bulmaca oyunudur. Amaç
-düşen blokları sağa/sola çevirerek ya da döndürerek uygun biçimde
-yerleştirmektir.
+%description -l tr.UTF-8
+Jewel, Domain/Jewelbox ya da Tetris benzeri bir bulmaca oyunudur. AmaÃ§
+dÃ¼ÅŸen bloklarÄ± saÄŸa/sola Ã§evirerek ya da dÃ¶ndÃ¼rerek uygun biÃ§imde
+yerleÅŸtirmektir.
 
 %prep
 %setup  -q
