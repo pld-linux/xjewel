@@ -1,8 +1,8 @@
 Summary:	An X Window System game of falling jewel blocks
-Summary(de.UTF-8):   Game von der Art von Segas COLUMNS
-Summary(fr.UTF-8):   Jeu du style Columns de Sega
-Summary(pl.UTF-8):   Gra pod X Window System - spadające bloki
-Summary(tr.UTF-8):   Sega'nın columns'una benzer oyun
+Summary(de.UTF-8):	Game von der Art von Segas COLUMNS
+Summary(fr.UTF-8):	Jeu du style Columns de Sega
+Summary(pl.UTF-8):	Gra pod X Window System - spadające bloki
+Summary(tr.UTF-8):	Sega'nın columns'una benzer oyun
 Name:		xjewel
 Version:	1.6
 Release:	21
